@@ -21,13 +21,13 @@ exports.sortDependencies = function sortDependencies(data) {
 }
 
 /**
- * Runs `npm install` in the project directory
+ * Runs `yarn install` in the project directory
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
  */
 exports.installDependencies = function installDependencies(
   cwd,
-  executable = 'npm',
+  executable = 'yarn',
   color
 ) {
   console.log(`\n\n# ${color('Installing project dependencies ...')}`)
@@ -38,7 +38,7 @@ exports.installDependencies = function installDependencies(
 }
 
 /**
- * Runs `npm run lint -- --fix` in the project directory
+ * Runs `yarn run lint -- --fix` in the project directory
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
  */
@@ -51,7 +51,7 @@ exports.runLintFix = function runLintFix(cwd, data, color) {
     )
     console.log('# ========================\n')
     const args =
-      data.autoInstall === 'npm'
+      data.autoInstall === 'yarn'
         ? ['run', 'lint', '--', '--fix']
         : ['run', 'lint', '--fix']
     return runCommand(data.autoInstall, args, {
@@ -75,9 +75,9 @@ To get started:
   ${yellow(
     `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
       data
-    )}${lintMsg(data)}npm run dev`
+    )}${lintMsg(data)}yarn start`
   )}
-  
+
 Documentation can be found at https://vuejs-templates.github.io/webpack
 `
   console.log(message)
@@ -92,17 +92,17 @@ function lintMsg(data) {
   return !data.autoInstall &&
     data.lint &&
     lintStyles.indexOf(data.lintConfig) !== -1
-    ? 'npm run lint -- --fix (or for yarn: yarn run lint --fix)\n  '
+    ? 'yarn run lint -- --fix\n  '
     : ''
 }
 
 /**
- * If the user will have to run `npm install` or `yarn` themselves, it returns a string
+ * If the user will have to run `yarn install` themselves, it returns a string
  * containing the instruction for this step.
  * @param {Object} data Data from the questionnaire
  */
 function installMsg(data) {
-  return !data.autoInstall ? 'npm install (or if using yarn: yarn)\n  ' : ''
+  return !data.autoInstall ? 'yarn install\n  ' : ''
 }
 
 /**
