@@ -50,6 +50,7 @@ module.exports = {
       when: 'isNotTest',
       type: 'string',
       message: 'Author',
+      default: 'Ashwin Vaswani'
     },
     build: {
       when: 'isNotTest',
@@ -72,17 +73,17 @@ module.exports = {
     router: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Install vue-router?',
+      message: 'Install vue-router? (Disable for minimal setup)',
     },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Use ESLint to lint your code?',
+      message: 'Use ESLint to lint your code? (Enable for minimal setup)',
     },
     lintConfig: {
       when: 'isNotTest && lint',
       type: 'list',
-      message: 'Pick an ESLint preset',
+      message: 'Pick an ESLint preset (Use standard for minimal setup)',
       choices: [
         {
           name: 'Standard (https://github.com/standard/standard)',
@@ -104,7 +105,7 @@ module.exports = {
     unit: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Set up unit tests',
+      message: 'Set up unit tests (Disable for minimal setup)',
     },
     runner: {
       when: 'isNotTest && unit',
@@ -131,7 +132,7 @@ module.exports = {
     e2e: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Setup e2e tests with Nightwatch?',
+      message: 'Setup e2e tests with Nightwatch? (Disable for minimal setup)',
     },
     autoInstall: {
       when: 'isNotTest',
