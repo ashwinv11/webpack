@@ -1,14 +1,14 @@
-{ 
+{
   "noEscape": true,
-  "name": "test-minimal",
-  "description": "Testing the minimal template setup",
-  "author": "CircleCI",
-  "build": "standalone",
+  "name": "test",
+  "description": "A Vue.js project",
+  "author": "Ashwin Vaswani",
+  "build": "runtime",
   "router": false,
-  "lint": false,
-  "lintConfig": "standard",
+  "lint": true,
+  "lintConfig": "recommended",
   "unit": false,
-  "runner": "jest",
+  "runner": false,
   "e2e": false,
-  "autoInstall": false
+  "autoInstall": true
 }
